@@ -3,42 +3,31 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/style.css">
 	<script type="text/javascript"></script>
 </head>
 
 <body>
-
 	<main>
 		<header style="background-color: #0A2A12">
-			<h1>Word tru</h1>
-			<h2>By kx</h2>
+			<h1>Shisha and Code</h1>
 		</header>
 		
+		<%= yield %>
+
 		<nav id="site-nav">
-			<ul>
-				<li class="menu-item">Menu Item 01</li>
-				<li class="menu-item">Menu Item 01</li>
-				<li class="menu-item">Menu Item 01</li>
-				<li class="menu-item">Menu Item 01</li>
-			</ul>
+
 		</nav>
 		<aside id="sidebar">
 			
 		</aside>
 		
 		<section id="content">
-			<%= yield %>
 		</section>
 
 		<footer>
 			<nav>
-				<ul>
-				<li>Menu Item 01</li>
-				<li>Menu Item 02</li>
-				<li>Menu Item 03</li>
-				<li>Menu Item 04</li>
-				</ul>
+			
 			</nav>
 		</footer>
 	</main>

@@ -7,7 +7,7 @@ require 'sinatra'
 @@rolodex.add_contact(Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar"))
 
 get '/' do
-	@crm_app_name = "see our em"
+	@crm_app_name = "Come join Kenneth for some Shisha and code!"
 	erb :index
 end
 

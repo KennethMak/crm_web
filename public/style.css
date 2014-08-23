@@ -1,0 +1,28 @@
+html, 
+body {
+	background-image: url("http://tn.clashot.com/thumbs/3053945/49067353/thumb_w800.jpg");
+	font-family: Arial;
+	font-size: 24px;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	}
+
+/*	a {
+	color:white;
+	background-color: green;
+	}
+		
+	a.hover
+	a.active
+	a.visited {
+		background-color: transparent;
+	}*/
+
+	h1 {
+	color: white;
+	background-color: #6E6E6E;
+	width: 60%;
+	margin: 0 auto;
+	}
+}
