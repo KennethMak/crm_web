@@ -1,0 +1,77 @@
+
+html, 
+body {
+	background-image: url("http://www.eastudio.ca/images/background-dark.jpg");
+	font-family: Arial;
+	font-size: 24px;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	}
+
+	a {
+	color:white;
+	background-color: green;
+	}
+		
+	a.hover
+	a.active
+	a.visited {
+		background-color: transparent;
+	}
+
+	h1 {
+	color: white;
+	background-color: #6E6E6E;
+	width: 60%;
+	margin: 0 auto;
+	}
+
+	#site-nav {
+		color: white;
+		background-color: black;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+	}
+		
+	form {
+        width:500px;
+        margin:50px auto;
+		}
+	.search {
+        padding:8px 15px;
+        background:rgba(50, 50, 50, 0.2);
+        border:0px solid #dbdbdb;
+		}
+	.button {
+        position:relative;
+        padding:6px 15px;
+        left:-8px;
+        border:2px solid #207cca;
+        background-color:#207cca;
+        color:#fafafa;
+		}
+	.button:hover  {
+        background-color:#fafafa;
+        color:#207cca;
+		}
+		
+	nav > ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.menu-item {
+		cursor: pointer;
+		color: green;
+		display: inline-block;
+		padding: 0px 1em;
+	}
+
+	#content {
+		width: 60%;
+		margin: 0 auto;
+	}

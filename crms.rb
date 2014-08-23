@@ -4,6 +4,8 @@ require 'sinatra'
 
 @@rolodex = Rolodex.new
 
+@@rolodex.add_contact(Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar"))
+
 get '/' do
 	@crm_app_name = "see our em"
 	erb :index
@@ -23,7 +25,14 @@ post '/contacts' do
 	redirect to('/contacts')
 end
 
-
+get '/contacts/:id' do
+	@contact = @@rolodex.find(params[:id].to_i)
+	if @contact
+		erb :show_contacts
+	else
+		raise Sinatra::NotFound
+	end
+end
 # get "/contacts" do
 # 	@contacts = []
 # 	@contacts << Contact.new("Mr", "T", "mrt@live.ca", "tman")
