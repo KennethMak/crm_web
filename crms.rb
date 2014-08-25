@@ -33,7 +33,8 @@ end
 post '/contacts' do
 	new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
 	@@rolodex.add_contact(new_contact)
-	redirect to('/contacts')
+
+	redirect to('/')
 end
 
 get '/contacts/:id' do
@@ -45,7 +46,6 @@ get '/contacts/:id' do
 	end
 end
 
-
  put "/contacts/:id" do
   @contact = @@rolodex.find(params[:id].to_i)
   if @contact
@@ -53,7 +53,8 @@ end
     @contact.last_name = params[:last_name]
     @contact.email = params[:email]
     @contact.note = params[:note]
-    redirect to("/contacts")
+
+    redirect to('/')
   else
     raise Sinatra::NotFound
   end
@@ -63,7 +64,8 @@ delete "/contacts/:id" do
   @contact = @@rolodex.find(params[:id].to_i)
   if @contact
     @@rolodex.remove_contact(@contact)
-    redirect to("/contacts")
+
+    redirect to('/')
   else
     raise Sinatra::NotFound
    end
