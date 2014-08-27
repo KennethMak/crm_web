@@ -1,4 +1,3 @@
-require_relative'rolodex'
 require 'data_mapper'
 require 'sinatra'
 
@@ -26,8 +25,6 @@ DataMapper.auto_upgrade!
   #   @note = note
   # end
 
-@@rolodex = Rolodex.new
-
 get '/' do
 	@crm_app_name = "Come join Kenneth for some Shisha and code!"
 	erb :index
@@ -38,6 +35,7 @@ get '/form' do
 end
 
 get "/contacts" do
+	@contacts = Contact.all
 	erb :contacts
 end
 
@@ -46,7 +44,7 @@ get "/contacts/new" do
 end
 
 get "/contacts/:id/edit" do
-  @contact = @@rolodex.find(params[:id].to_i)
+  @contact = Contact.get(params[:id].to_i)
   if @contact
     erb :edit_contact
   else
@@ -55,14 +53,20 @@ get "/contacts/:id/edit" do
 end
 
 post '/contacts' do
-	new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
-	@@rolodex.add_contact(new_contact)
-
+	contact = Contact.create(
+		:first_name => params[:first_name],
+		:last_name => params[:last_name],
+		:email => params[:email],
+		:note => params[:note]
+		)
 	redirect to('/')
 end
 
+	# new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
+	# @@rolodex.add_contact(new_contact)
+
 get '/contacts/:id' do
-	@contact = @@rolodex.find(params[:id].to_i)
+	@contact = Contact.get(params[:id].to_i)
 	if @contact
 		erb :show_contacts
 	else
@@ -71,7 +75,7 @@ get '/contacts/:id' do
 end
 
  put "/contacts/:id" do
-  @contact = @@rolodex.find(params[:id].to_i)
+  @contact = Contact.get(params[:id].to_i)
   if @contact
     @contact.first_name = params[:first_name]
     @contact.last_name = params[:last_name]
@@ -85,11 +89,10 @@ end
 end
 
 delete "/contacts/:id" do
-  @contact = @@rolodex.find(params[:id].to_i)
+  @contact = Contact.get(params[:id].to_i)
   if @contact
-    @@rolodex.remove_contact(@contact)
-
-    redirect to('/')
+  		@contact.destroy
+   		redirect to('/')
   else
     raise Sinatra::NotFound
    end
